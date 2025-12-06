@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
-// Extend Express Request to include user info
 export interface AuthRequest extends Request {
   user?: {
     id: number;
@@ -11,10 +10,9 @@ export interface AuthRequest extends Request {
   };
 }
 
-// 1. Verify Token Middleware
 export const authenticateToken = (req: AuthRequest, res: Response, next: NextFunction): void => {
   const authHeader = req.headers['authorization'];
-  // Format: "Bearer <token>"
+
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
@@ -31,7 +29,6 @@ export const authenticateToken = (req: AuthRequest, res: Response, next: NextFun
   }
 };
 
-// 2. Role Authorization Middleware
 export const authorizeRole = (requiredRole: 'admin' | 'customer') => {
   return (req: AuthRequest, res: Response, next: NextFunction): void => {
     if (!req.user) {

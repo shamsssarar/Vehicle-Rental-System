@@ -25,7 +25,7 @@ export const getVehicleById = async (id: number) => {
 
 export const updateVehicle = async (id: number, data: any) => {
   const { vehicle_name, type, daily_rent_price, availability_status } = data;
-  // Note: We typically don't update registration_number as it's a unique identifier
+
   const sql = `
     UPDATE vehicles 
     SET vehicle_name = $1, type = $2, daily_rent_price = $3, availability_status = $4

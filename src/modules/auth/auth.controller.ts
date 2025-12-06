@@ -6,7 +6,7 @@ import { sendResponse, sendError } from '../../utils/response';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
-// 1. Sign Up
+// Sign Up
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name, email, password, phone, role } = req.body;
@@ -37,7 +37,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// 2. Sign In
+// Sign In
 export const signin = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;

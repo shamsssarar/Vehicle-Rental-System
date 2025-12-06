@@ -15,10 +15,6 @@ export const createBooking = async (req: AuthRequest, res: Response): Promise<vo
 
     const booking = await bookingService.createBooking(customerId, vehicleId, rent_start_date, rent_end_date);
     
-    // Fetch full vehicle details to match response format if needed, or return booking object
-    // For exact API match, ensure service returns the nested vehicle object or fetch it here.
-    // Based on the SQL in service, it returns flat booking data. You might want to enhance the service 
-    // to return the joined structure, but for now, we return the booking data created.
     
     sendResponse(res, 201, true, 'Booking created successfully', booking);
   } catch (error: any) {

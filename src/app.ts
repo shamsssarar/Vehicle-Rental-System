@@ -12,7 +12,7 @@ const app: Application = express();
 
 // Middlewares
 app.use(cors());
-app.use(express.json()); // Parse JSON bodies
+app.use(express.json()); 
 
 //Routes
 app.use('/api/v1/auth', authRoutes);
@@ -20,7 +20,6 @@ app.use('/api/v1/vehicles', vehicleRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
 app.use('/api/v1/users', userRoutes);
 
-// Test Route
 app.get('/', (req: Request, res: Response) => {
   res.send({ message: 'Vehicle Rental System API is running' });
 });
