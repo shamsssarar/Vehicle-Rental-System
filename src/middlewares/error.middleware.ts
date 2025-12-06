@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express";
 
-
 export function errorHandler(err: unknown, _req: Request, res: Response, _next: NextFunction) {
   const e = err as any;
+
 
   // pg unique violation
   if (e?.code === "23505") {
